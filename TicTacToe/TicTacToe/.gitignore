@@ -7,6 +7,7 @@
 *.rsuser
 *.suo
 *.user
+<<<<<<< HEAD
 *.userosscache
 *.sln.docstates
 
@@ -338,3 +339,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+=======
+Debug/
+v16/*
+>>>>>>> Finishing TicTacToe Game 1vs1.
