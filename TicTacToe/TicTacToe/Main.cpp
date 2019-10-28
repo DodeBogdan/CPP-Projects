@@ -166,8 +166,9 @@ void afisareMat(char mat[3][3])
 		std::cout << std::endl;
 	}
 }
-void alegere(char mat[3][3])
+void alegere()
 {
+	char mat[3][3] = { '0','0','0','0','0','0','0','0','0' };
 	char player = 'X';
 	std::vector<int> temp;
 	while (!isGameEnd(mat))
@@ -218,10 +219,8 @@ void alegere(char mat[3][3])
 }
 int main()
 {
-	
-	char mat[3][3] = {'0','0','0','0','0','0','0','0','0' };
-	
+	alegere();
 	std::cout << std::endl;
-	alegere(mat);
-	
+	system("pause");
+	return 0;
 }

@@ -342,4 +342,8 @@ healthchecksdb
 =======
 Debug/
 v16/*
+<<<<<<< HEAD
 >>>>>>> Finishing TicTacToe Game 1vs1.
+=======
+.db
+>>>>>>> Modify some bugs.
