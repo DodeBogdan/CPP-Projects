@@ -2,7 +2,17 @@
 #include <string>
 #include <vector>
 #include<limits>
+#include <iomanip>
 
+int player1 = 0, player2 = 0;
+std::string name1, name2;
+void BD(int &player1, int &player2, char player)
+{
+	if (player == 'X')
+		player1++;
+	else
+		player2++;
+}
 void linieMargini()
 {
 	std::cout << "\t     |     |     \n";
@@ -20,48 +30,64 @@ bool isGameEnd(char mat[3][3])
 		//std::cout << "mat[0][0] == mat[0][1] && mat[0][1] == mat[0][2] && mat[0][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[0][0] << " wins";
+		BD(player1,player2,mat[0][0]);
 		return 1;
 	}
 	if (mat[1][0] == mat[1][1] && mat[1][1] == mat[1][2] && mat[1][0] != '0') {
 		//std::cout << "mat[1][0] == mat[1][1] && mat[1][1] == mat[1][2] && mat[1][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[1][0] << " wins";
+		BD(player1, player2, mat[1][0]);
 		return 1;
 	}
 	if (mat[2][0] == mat[2][1] && mat[2][1] == mat[2][2] && mat[2][0] != '0') {
 		//std::cout << "mat[2][0] == mat[2][1] && mat[2][1] == mat[0][2] && mat[2][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[2][0] << " wins";
+		BD(player1, player2, mat[2][0]);
 		return 1;
 	}
 	if (mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[0][0] << " wins";
+		BD(player1, player2, mat[0][0]);
 		return 1;
 	}
 	if (mat[0][1] == mat[1][1] && mat[1][1] == mat[2][1] && mat[0][1] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[0][1] << " wins";
+		BD(player1, player2, mat[0][1]);
 		return 1;
 	}
 	if (mat[0][2] == mat[1][2] && mat[1][2] == mat[2][2] && mat[0][2] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[0][2] << " wins";
+		BD(player1, player2, mat[0][2]);
 		return 1;
 	}
 	if (mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2] && mat[0][0] != '0') {
 		//std::cout << "mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2] && mat[0][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[0][0] << " wins";
+		BD(player1, player2, mat[0][0]);
 		return 1;
 	}
 	if (mat[2][0] == mat[1][1] && mat[1][1] == mat[0][2] && mat[2][0] != '0') {
 		//std::cout << "mat[2][0] == mat[1][1] && mat[1][1] == mat[0][2] && mat[2][0] != '0'\n";
 		system("cls");
 		board(mat);
+		std::cout << "Player: " << mat[2][0] << " wins";
+		BD(player1, player2, mat[2][0]);
 		return 1;
 	}
 	return 0;
@@ -69,7 +95,9 @@ bool isGameEnd(char mat[3][3])
 void board(char mat[3][3]){
 
 			std::cout << "\t  TicTacToe Game\n\n";
-			std::cout << " Player 1 = {X} | Player 2 = {O}\n\n";
+			std::cout << " Player 1 = {X} | Player 2 = {O}\n";
+			std::cout <<" "<<name1<<std::setw(12 - name1.length())<<" = {" << player1 << "} | "<<name2<<std::setw(12 - name2.length())<<" = {" << player2 << "}\n\n";
+
 			linieMargini(); 
 			if (mat[0][0] != '0') std::cout << "\t  " << mat[0][0]<<"  |";
 			else std::cout << "\t     |";
@@ -191,7 +219,7 @@ void alegere()
 		if (temp.size() == 9)
 		{
 			std::cout << "DRAW";
-			break;
+			return;
 		}
 		do
 		{
@@ -215,11 +243,26 @@ void alegere()
 		else
 			player = 'X';
 	}
-	std::cout << "END";
 }
 int main()
 {
-	alegere();
+	do {
+		if (name1.length() == 0)
+		{
+			std::cout << "First player name: ";
+			std::getline(std::cin, name1);
+
+			std::cout << "Second player name: ";
+			std::getline(std::cin, name2);
+		}
+		alegere();
+		std::cout << "\nRetry?\n1.Yes\n2.No\n";
+		int optiune;
+		std::cin >> optiune;
+		if (optiune != 1)
+			break;
+	} while (1);
+	
 	std::cout << std::endl;
 	system("pause");
 	return 0;
