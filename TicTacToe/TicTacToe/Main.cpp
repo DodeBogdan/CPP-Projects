@@ -29,65 +29,89 @@ bool isGameEnd(char mat[3][3])
 	if (mat[0][0] == mat[0][1] && mat[0][1] == mat[0][2] && mat[0][0] != '0') {
 		//std::cout << "mat[0][0] == mat[0][1] && mat[0][1] == mat[0][2] && mat[0][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[0][0] << " wins";
 		BD(player1,player2,mat[0][0]);
+		board(mat);
+		if (mat[0][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[1][0] == mat[1][1] && mat[1][1] == mat[1][2] && mat[1][0] != '0') {
 		//std::cout << "mat[1][0] == mat[1][1] && mat[1][1] == mat[1][2] && mat[1][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[1][0] << " wins";
 		BD(player1, player2, mat[1][0]);
+		board(mat);
+		if (mat[1][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[2][0] == mat[2][1] && mat[2][1] == mat[2][2] && mat[2][0] != '0') {
 		//std::cout << "mat[2][0] == mat[2][1] && mat[2][1] == mat[0][2] && mat[2][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[2][0] << " wins";
 		BD(player1, player2, mat[2][0]);
+		board(mat);
+		if (mat[2][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[0][0] << " wins";
 		BD(player1, player2, mat[0][0]);
+		board(mat);
+		if (mat[0][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[0][1] == mat[1][1] && mat[1][1] == mat[2][1] && mat[0][1] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[0][1] << " wins";
 		BD(player1, player2, mat[0][1]);
+		board(mat);
+		if (mat[0][1] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[0][2] == mat[1][2] && mat[1][2] == mat[2][2] && mat[0][2] != '0') {
 		//std::cout << "mat[0][0] == mat[1][0] && mat[1][0] == mat[2][0] && mat[0][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[0][2] << " wins";
 		BD(player1, player2, mat[0][2]);
+		board(mat);
+		if (mat[0][2] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2] && mat[0][0] != '0') {
 		//std::cout << "mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2] && mat[0][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[0][0] << " wins";
 		BD(player1, player2, mat[0][0]);
+		board(mat);
+		if (mat[0][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	if (mat[2][0] == mat[1][1] && mat[1][1] == mat[0][2] && mat[2][0] != '0') {
 		//std::cout << "mat[2][0] == mat[1][1] && mat[1][1] == mat[0][2] && mat[2][0] != '0'\n";
 		system("cls");
-		board(mat);
-		std::cout << "Player: " << mat[2][0] << " wins";
 		BD(player1, player2, mat[2][0]);
+		board(mat);
+		if (mat[2][0] == 'X')
+			std::cout << "Player: " << name1 << " wins";
+		else
+			std::cout << "Player: " << name2 << " wins";
 		return 1;
 	}
 	return 0;
@@ -261,9 +285,24 @@ int main()
 		std::cin >> optiune;
 		if (optiune != 1)
 			break;
+		std::cout << "Change sides?\n1.Yes\n2.No\n";
+		int optiune2;
+		std::cin >> optiune2;
+		if (optiune2 == 1)
+		{
+			std::string aux;
+			int auxP;
+			aux = name1;
+			name1 = name2;
+			name2 = aux;
+			auxP = player1;
+			player1 = player2;
+			player2 = auxP;
+		}
+		else
+		{ }
 	} while (1);
 	
 	std::cout << std::endl;
-	system("pause");
 	return 0;
 }
